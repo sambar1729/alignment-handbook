@@ -49,6 +49,9 @@ def main():
     parser = H4ArgumentParser((ModelArguments, DataArguments, SFTConfig))
     model_args, data_args, training_args = parser.parse()
 
+    ### disable pushing to hub.
+    training_args.push_to_hub = False
+
     # Set seed for reproducibility
     set_seed(training_args.seed)
 
